@@ -258,6 +258,20 @@ fun Navegacao(){
             )
         }
     )
+}
+
+@Composable
+fun Aplicativo(color: Color){
+
+    Column {
+
+        Card(
+        colors = CardDefaults.cardColors(containerColor = color),
+        modifier = Modifier
+            .height(70.dp)
+            .width(70.dp),
+            border = BorderStroke(2.dp, Color.Black)
+    ) {
 
 }
 
