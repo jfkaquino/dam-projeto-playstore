@@ -277,4 +277,26 @@ fun Aplicativo(color: Color){
     }
 
 
+}
+
+@Preview
+@Composable
+fun BarraTopo2(){
+
+    Surface(
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(40.dp)
+    ) {
+
+        Column {
+
+            Row {
+
+            }
+
+        }
+    }
+}
+
 
