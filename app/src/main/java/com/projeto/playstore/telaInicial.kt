@@ -26,9 +26,11 @@ import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -232,7 +234,7 @@ fun Inicial() {
 @OptIn(ExperimentalMaterial3Api::class)
 @Preview
 @Composable
-fun Navegacao(){
+fun BarraTopo(){
 
     TopAppBar(
         modifier = Modifier.padding(5.dp),
