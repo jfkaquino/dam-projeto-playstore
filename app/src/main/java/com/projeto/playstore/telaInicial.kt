@@ -273,7 +273,8 @@ fun Aplicativo(color: Color){
             border = BorderStroke(2.dp, Color.Black)
     ) {
 
-}
+        }
+    }
 
 
 
