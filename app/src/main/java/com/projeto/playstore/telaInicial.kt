@@ -8,6 +8,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -26,16 +27,25 @@ import androidx.compose.material.icons.automirrored.filled.Send
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.CheckCircle
+import androidx.compose.material.icons.filled.Face
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Star
+import androidx.compose.material.icons.outlined.Search
+import androidx.compose.material.icons.rounded.Phone
+import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -50,6 +60,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -59,7 +72,8 @@ fun Inicial() {
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
-        topBar = { BarraTopo() }
+        topBar = { BarraTopo() },
+        bottomBar = { BarraFinal() }
 
     ) { innerPadding ->
         Surface (
@@ -70,6 +84,22 @@ fun Inicial() {
             Column(
 
             ) {
+
+                Spacer(modifier = Modifier.height(5.dp))
+
+                TopoNavegacao()
+
+                Spacer(modifier = Modifier.height(15.dp))
+
+                HorizontalDivider(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    thickness = 2.dp,
+                    color = MaterialTheme.colorScheme.outline
+                )
+
+                Spacer(modifier = Modifier.height(20.dp))
+
             Card(
                 colors = CardDefaults.cardColors(Color.Cyan),
                 modifier = Modifier
@@ -89,16 +119,21 @@ fun Inicial() {
                     verticalAlignment = Alignment.CenterVertically
                 )
                      {
-                    Text("Patrocinados • ", style = MaterialTheme.typography.bodyMedium)
-                    Text("Sugestões para você", style = MaterialTheme.typography.bodyLarge)
+                    Text("Patrocinados • ", style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.Bold)
+                    Text("Sugestões para você", style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Bold)
 
                     Spacer(modifier = Modifier.width(74.dp))
 
-                         Icon(
-                             imageVector = Icons.Default.MoreVert,
-                             contentDescription = "",
-                             modifier = Modifier.size(30.dp)
-                         )
+                         IconButton(
+                             onClick = {
+                             }
+                         ) {
+                             Icon(
+                                 imageVector = Icons.Default.MoreVert,
+                                 contentDescription = "Mais opções",
+                                 modifier = Modifier.size(30.dp)
+                             )
+                         }
                 }
 
                 Spacer(modifier = Modifier.height(20.dp))
@@ -109,8 +144,7 @@ fun Inicial() {
                         .padding(horizontal = 16.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Aplicativo(Color.Red)
-
+                    Aplicativo(Color.Red, icon = Icons.Default.Face)
                     Spacer(modifier = Modifier.width(20.dp))
 
                     Column {
@@ -151,7 +185,7 @@ fun Inicial() {
                         .padding(horizontal = 16.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Aplicativo(Color.Black)
+                    Aplicativo(Color.Black, icon = Icons.Default.ShoppingCart)
 
                     Spacer(modifier = Modifier.width(20.dp))
 
@@ -193,7 +227,7 @@ fun Inicial() {
                         .padding(horizontal = 16.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Aplicativo(Color.Green)
+                    Aplicativo(Color.Green, icon = Icons.Default.Lock)
 
                     Spacer(modifier = Modifier.width(20.dp))
 
@@ -232,7 +266,6 @@ fun Inicial() {
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview
 @Composable
 fun BarraTopo(){
 
@@ -263,7 +296,7 @@ fun BarraTopo(){
 }
 
 @Composable
-fun Aplicativo(color: Color){
+fun Aplicativo(color: Color, icon: ImageVector){
 
     Column {
 
@@ -275,30 +308,178 @@ fun Aplicativo(color: Color){
             border = BorderStroke(2.dp, Color.Black)
     ) {
 
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                Icon(
+                    imageVector = icon,
+                    contentDescription = "Ícone do aplicativo",
+                    tint = Color.White,
+                    modifier = Modifier.size(30.dp)
+                )
+            }
+
         }
     }
 
 
 }
 
-@Preview
 @Composable
-fun BarraTopo2(){
-
-    Surface(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(40.dp)
-    ) {
-
-        Column {
-
-            Row {
-
+fun BarraFinal() {
+    BottomAppBar(){
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .padding(20.dp, 0.dp),
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Column(
+                modifier = Modifier,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .size(30.dp)
+                ) {
+                    /*(Icon(
+                        modifier = Modifier
+                            .fillMaxSize(),
+                        imageVector = Icons.Outlined.SportsEsports,
+                        contentDescription = "",
+                    )*/
+                }
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(
+                    "Jogos",
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.Bold
+                )
             }
-
+            Column(
+                modifier = Modifier,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .size(30.dp)
+                ) {
+                    /*Icon(
+                        modifier = Modifier
+                            .fillMaxSize(),
+                        imageVector = Icons.Outlined.GridView,
+                        contentDescription = "",
+                    )*/
+                }
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(
+                    "Apps",
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+            Column(
+                modifier = Modifier,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .size(30.dp)
+                ) {
+                    Icon(
+                        modifier = Modifier
+                            .fillMaxSize(),
+                        imageVector = Icons.Outlined.Search,
+                        contentDescription = "",
+                    )
+                }
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(
+                    "Pesquisa",
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.Bold
+                )
+            }
+            Column(
+                modifier = Modifier,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .size(30.dp)
+                ) {
+                    /*Icon(
+                        modifier = Modifier
+                            .fillMaxSize(),
+                        imageVector = Icons.Outlined.Book,
+                        contentDescription = "",
+                    )*/
+                }
+                Spacer(modifier = Modifier.height(10.dp))
+                Text(
+                    "Livros",
+                    textAlign = TextAlign.Center,
+                    style = MaterialTheme.typography.labelSmall,
+                    fontWeight = FontWeight.Bold
+                )
+            }
         }
     }
+}
+@Composable
+fun TopoNavegacao(){
+
+    Column {
+
+        Card(
+            colors = CardDefaults.cardColors(Color.Transparent),
+            modifier = Modifier
+                .height(20.dp)
+                .fillMaxWidth()
+        ) {
+
+            Row(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(horizontal = 16.dp),
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    "Para você",
+                    fontWeight = FontWeight.Bold,
+                    style = MaterialTheme.typography.bodyLarge
+                )
+                Spacer(modifier = Modifier.width(16.dp))
+                Text(
+                    "Em alta",
+                    fontWeight = FontWeight.Bold,
+                    style = MaterialTheme.typography.bodyLarge
+                )
+                Spacer(modifier = Modifier.width(16.dp))
+                Text(
+                    "Outros dispositivos",
+                    fontWeight = FontWeight.Bold,
+                    style = MaterialTheme.typography.bodyLarge
+                )
+                Spacer(modifier = Modifier.width(16.dp))
+                Text(
+                    "Crianças",
+                    fontWeight = FontWeight.Bold,
+                    style = MaterialTheme.typography.bodyLarge
+                )
+            }
+        }
+
+    }
+    
 }
 
 
