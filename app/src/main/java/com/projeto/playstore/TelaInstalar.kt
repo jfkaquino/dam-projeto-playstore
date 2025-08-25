@@ -1,6 +1,7 @@
 package com.projeto.playstore
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -10,16 +11,22 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.PlayArrow
-import androidx.compose.material.icons.rounded.Email
+import androidx.compose.material.icons.automirrored.outlined.ArrowBack
+import androidx.compose.material.icons.automirrored.outlined.ArrowForward
+import androidx.compose.material.icons.outlined.ArrowForward
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.MoreVert
+import androidx.compose.material.icons.outlined.Phone
+import androidx.compose.material.icons.outlined.ShoppingCart
+import androidx.compose.material.icons.outlined.Star
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
@@ -28,7 +35,10 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -51,14 +61,14 @@ fun TelaInstalar() {
                     .fillMaxWidth()
                     .padding(horizontal = 15.dp, vertical = 10.dp)
             ) {
-                Row{
+                Row {
                     Surface(
                         modifier = Modifier.size(80.dp),
                         color = Color.Blue,
                         shape = RoundedCornerShape(12.dp)
                     ) {
                         Icon(
-                            imageVector = Icons.Default.Home,
+                            imageVector = Icons.Outlined.Phone,
                             contentDescription = "",
                             tint = Color.White
                         )
@@ -66,7 +76,7 @@ fun TelaInstalar() {
                     Spacer(modifier = Modifier.width(20.dp))
                     Column {
                         Text(
-                            "Google",
+                            "Telefone",
                             style = MaterialTheme.typography.headlineMedium
                         )
                         Text(
@@ -76,9 +86,16 @@ fun TelaInstalar() {
                         )
                     }
                 }
-                Spacer(modifier = Modifier.height(20.dp))
-                Row{
+                Spacer(modifier = Modifier.height(15.dp))
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
                     Column(
+                        modifier = Modifier
+                            .weight(1f)
+                            .padding(horizontal = 15.dp, vertical = 10.dp),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(
@@ -95,35 +112,110 @@ fun TelaInstalar() {
                         )
                     }
                     Column(
+                        modifier = Modifier
+                            .weight(1f)
+                            .padding(horizontal = 15.dp, vertical = 10.dp),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
-                        Text(
-                            "4,3",
-                            textAlign = TextAlign.Center,
-                            fontWeight = FontWeight.Bold,
-                            style = MaterialTheme.typography.labelSmall
+                        Icon(
+                            imageVector = Icons.Outlined.ShoppingCart,
+                            contentDescription = ""
                         )
                         Text(
-                            "26 mi\navaliações",
+                            "8,8 MB",
                             textAlign = TextAlign.Center,
                             color = Color.DarkGray,
                             style = MaterialTheme.typography.labelSmall
                         )
                     }
                     Column(
+                        modifier = Modifier
+                            .weight(1f)
+                            .padding(horizontal = 15.dp, vertical = 10.dp),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(
-                            "4,3",
+                            "Mais de 10 bi",
                             textAlign = TextAlign.Center,
                             fontWeight = FontWeight.Bold,
                             style = MaterialTheme.typography.labelSmall
                         )
                         Text(
-                            "26 mi\navaliações",
+                            "Downloads",
                             textAlign = TextAlign.Center,
                             color = Color.DarkGray,
                             style = MaterialTheme.typography.labelSmall
+                        )
+                    }
+                }
+                Button(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 15.dp),
+                    colors = ButtonColors(
+                        containerColor = Color.Blue,
+                        contentColor = Color.White,
+                        disabledContainerColor = Color.Gray,
+                        disabledContentColor = Color.Black
+                    ),
+                    onClick = {},
+                ) {
+                    Text(
+                        "Instalar",
+                        style = MaterialTheme.typography.labelLarge
+                    )
+                }
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 15.dp, vertical = 10.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.SpaceEvenly,
+                ) {
+                    Surface(
+                        modifier = Modifier
+                            .width(100.dp)
+                            .height(170.dp),
+                        color = Color.LightGray,
+                        shape = RoundedCornerShape(12.dp)
+                    ){}
+                    Surface(
+                        modifier = Modifier
+                            .width(100.dp)
+                            .height(170.dp),
+                        color = Color.LightGray,
+                        shape = RoundedCornerShape(12.dp)
+                    ){}
+                    Surface(
+                        modifier = Modifier
+                            .width(100.dp)
+                            .height(170.dp),
+                        color = Color.LightGray,
+                        shape = RoundedCornerShape(12.dp)
+                    ){}
+                }
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 15.dp, vertical = 10.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ){
+                    Text(
+                        "Sobre este app",
+                        style = MaterialTheme.typography.bodyLarge,
+                        fontWeight = FontWeight.Bold
+                    )
+                    Spacer(modifier = Modifier.weight(1f))
+                    IconButton(
+                        onClick = {},
+                        modifier = Modifier
+                            .size(20.dp)
+                            .clip(RoundedCornerShape(20.dp))
+                            .background(Color.LightGray),
+                    ) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Outlined.ArrowForward,
+                            contentDescription = ""
                         )
                     }
                 }
@@ -132,25 +224,35 @@ fun TelaInstalar() {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun BarraDeNavegação() {
-    TopAppBar(
-        modifier = Modifier.padding(5.dp),
-        navigationIcon = {
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                contentDescription = "",
-                modifier = Modifier.size(30.dp),
-            )
-        },
-        title = { Text("") },
-        actions = {
-            Icon(
-                imageVector = Icons.Default.MoreVert,
-                contentDescription = "",
-                modifier = Modifier.size(30.dp),
-            )
-        }
-    )
-}
+    @OptIn(ExperimentalMaterial3Api::class)
+    @Composable
+    fun BarraDeNavegação() {
+        TopAppBar(
+            modifier = Modifier.padding(5.dp),
+            navigationIcon = {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .size(30.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Outlined.ArrowBack,
+                        contentDescription = "",
+                    )
+                }
+            },
+            title = { Text("") },
+            actions = {
+                IconButton(
+                    onClick = {},
+                    modifier = Modifier
+                        .size(30.dp)
+                ) {
+                    Icon(
+                        imageVector = Icons.Outlined.MoreVert,
+                        contentDescription = "",
+                    )
+                }
+            }
+        )
+    }
