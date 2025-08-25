@@ -55,6 +55,61 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun Inicial() {
 
+    Scaffold(
+        modifier = Modifier.fillMaxSize(),
+        topBar = { BarraTopo() }
+
+    ) { innerPadding ->
+        Surface (
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(innerPadding)
+        ){
+            Column(
+
+            ) {
+            Card(
+                colors = CardDefaults.cardColors(Color.Cyan),
+                modifier = Modifier
+                    .height(250.dp)
+                    .fillMaxWidth()
+                    .padding(horizontal = 16.dp),
+                border = BorderStroke(2.dp, Color.Black)
+
+            ) {  }
+
+                Spacer(modifier = Modifier.height(20.dp))
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                )
+                     {
+                    Text("Patrocinados • ", style = MaterialTheme.typography.bodyMedium)
+                    Text("Sugestões para você", style = MaterialTheme.typography.bodyLarge)
+
+                    Spacer(modifier = Modifier.width(74.dp))
+
+                         Icon(
+                             imageVector = Icons.Default.MoreVert,
+                             contentDescription = "",
+                             modifier = Modifier.size(30.dp)
+                         )
+                }
+
+                Spacer(modifier = Modifier.height(20.dp))
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Aplicativo(Color.Red)
+
+                    Spacer(modifier = Modifier.width(20.dp))
 
 }
 
