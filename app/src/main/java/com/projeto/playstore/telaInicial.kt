@@ -111,6 +111,122 @@ fun Inicial() {
 
                     Spacer(modifier = Modifier.width(20.dp))
 
+                    Column {
+                        Text("iFood para Entregadores")
+
+                        Spacer(modifier = Modifier.height(5.dp))
+
+                        Text("Empresa • Economia gig • Empregos e carreira", style = MaterialTheme.typography.bodySmall)
+
+                        Spacer(modifier = Modifier.height(5.dp))
+
+                        Row(
+
+                        ) {
+                            Text("4,6", style = MaterialTheme.typography.bodySmall)
+
+                            Spacer(modifier = Modifier.width(2.dp))
+
+                            Icon(
+                                imageVector = Icons.Filled.Star,
+                                contentDescription = "",
+                                modifier = Modifier.size(14.dp),
+                                tint = Color.Black
+                            )
+
+                            Spacer(modifier = Modifier.width(10.dp))
+
+                            Text("43 MB")
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(30.dp))
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Aplicativo(Color.Black)
+
+                    Spacer(modifier = Modifier.width(20.dp))
+
+                    Column {
+                        Text("SHEIN-COMPRAS Online")
+
+                        Spacer(modifier = Modifier.height(5.dp))
+
+                        Text("Compras • Lojas", style = MaterialTheme.typography.bodySmall)
+
+                        Spacer(modifier = Modifier.height(5.dp))
+
+                        Row(
+
+                        ) {
+                            Text("4,1", style = MaterialTheme.typography.bodySmall)
+
+                            Spacer(modifier = Modifier.width(2.dp))
+
+                            Icon(
+                                imageVector = Icons.Filled.Star,
+                                contentDescription = "",
+                                modifier = Modifier.size(14.dp),
+                                tint = Color.Black
+                            )
+
+                            Spacer(modifier = Modifier.width(10.dp))
+
+                            Text("27 MB")
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(30.dp))
+
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Aplicativo(Color.Green)
+
+                    Spacer(modifier = Modifier.width(20.dp))
+
+                    Column {
+                        Text("PicPay: Conta, Cartão e Pix")
+
+                        Spacer(modifier = Modifier.height(5.dp))
+
+                        Text("PicPay • Finanças • Carteiras digitais", style = MaterialTheme.typography.bodySmall)
+
+                        Spacer(modifier = Modifier.height(5.dp))
+
+                        Row(
+
+                        ) {
+                            Text("4,7", style = MaterialTheme.typography.bodySmall)
+
+                            Spacer(modifier = Modifier.width(2.dp))
+
+                            Icon(
+                                imageVector = Icons.Filled.Star,
+                                contentDescription = "",
+                                modifier = Modifier.size(14.dp),
+                                tint = Color.Black
+                            )
+
+                            Spacer(modifier = Modifier.width(10.dp))
+
+                            Text("156 MB")
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
