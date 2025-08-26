@@ -1,7 +1,6 @@
 package com.projeto.playstore
 
 import androidx.compose.foundation.BorderStroke
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -13,16 +12,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.MoreVert
-import androidx.compose.material.icons.filled.Notifications
-import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.outlined.Search
-import androidx.compose.material3.BottomAppBar
+import androidx.compose.material.icons.outlined.Notifications
+import androidx.compose.material.icons.rounded.AccountCircle
+import androidx.compose.material.icons.rounded.PlayArrow
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -40,7 +37,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
@@ -51,7 +47,7 @@ fun Inicial() {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = { BarraTopo() },
-        bottomBar = { BarraFinal() }
+        bottomBar = { BarraInferior() }
 
     ) { innerPadding ->
         Surface (
@@ -243,7 +239,7 @@ fun BarraTopo(){
         modifier = Modifier.padding(5.dp),
         navigationIcon = {
             Icon(
-                imageVector = Icons.Default.PlayArrow,
+                imageVector = Icons.Rounded.PlayArrow,
                 contentDescription = "",
                 modifier = Modifier.size(45.dp)
             )
@@ -251,13 +247,13 @@ fun BarraTopo(){
         title = { Text("") },
         actions = {
             Icon(
-                imageVector = Icons.Default.Notifications,
+                imageVector = Icons.Outlined.Notifications,
                 contentDescription = "",
                 modifier = Modifier.size(30.dp)
             )
 
             Icon(
-                imageVector = Icons.Default.AccountCircle,
+                imageVector = Icons.Rounded.AccountCircle,
                 contentDescription = "",
                 modifier = Modifier.size(50.dp)
             )
@@ -296,114 +292,6 @@ fun Aplicativo(color: Color, icon: ImageVector){
 
 }
 
-@Composable
-fun BarraFinal() {
-    BottomAppBar {
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .padding(20.dp, 0.dp),
-            horizontalArrangement = Arrangement.SpaceBetween
-        ) {
-            Column(
-                modifier = Modifier,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                IconButton(
-                    onClick = {},
-                    modifier = Modifier
-                        .size(30.dp)
-                ) {
-                    /*(Icon(
-                        modifier = Modifier
-                            .fillMaxSize(),
-                        imageVector = Icons.Outlined.SportsEsports,
-                        contentDescription = "",
-                    )*/
-                }
-                Spacer(modifier = Modifier.height(10.dp))
-                Text(
-                    "Jogos",
-                    textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.labelSmall,
-                    fontWeight = FontWeight.Bold
-                )
-            }
-            Column(
-                modifier = Modifier,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                IconButton(
-                    onClick = {},
-                    modifier = Modifier
-                        .size(30.dp)
-                ) {
-                    /*Icon(
-                        modifier = Modifier
-                            .fillMaxSize(),
-                        imageVector = Icons.Outlined.GridView,
-                        contentDescription = "",
-                    )*/
-                }
-                Spacer(modifier = Modifier.height(10.dp))
-                Text(
-                    "Apps",
-                    textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.labelSmall,
-                    fontWeight = FontWeight.Bold
-                )
-            }
-            Column(
-                modifier = Modifier,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                IconButton(
-                    onClick = {},
-                    modifier = Modifier
-                        .size(30.dp)
-                ) {
-                    Icon(
-                        modifier = Modifier
-                            .fillMaxSize(),
-                        imageVector = Icons.Outlined.Search,
-                        contentDescription = "",
-                    )
-                }
-                Spacer(modifier = Modifier.height(10.dp))
-                Text(
-                    "Pesquisa",
-                    textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.labelSmall,
-                    fontWeight = FontWeight.Bold
-                )
-            }
-            Column(
-                modifier = Modifier,
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                IconButton(
-                    onClick = {},
-                    modifier = Modifier
-                        .size(30.dp)
-                ) {
-                    /*Icon(
-                        modifier = Modifier
-                            .fillMaxSize(),
-                        imageVector = Icons.Outlined.Book,
-                        contentDescription = "",
-                    )*/
-                }
-                Spacer(modifier = Modifier.height(10.dp))
-                Text(
-                    "Livros",
-                    textAlign = TextAlign.Center,
-                    style = MaterialTheme.typography.labelSmall,
-                    fontWeight = FontWeight.Bold
-                )
-            }
-        }
-    }
-}
 @Composable
 fun TopoNavegacao(){
 
@@ -449,7 +337,7 @@ fun TopoNavegacao(){
         }
 
     }
-    
+
 }
 
 
