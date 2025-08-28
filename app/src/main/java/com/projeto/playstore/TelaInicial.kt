@@ -19,7 +19,12 @@ import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.material.icons.rounded.AccountCircle
+import androidx.compose.material.icons.rounded.AttachMoney
+import androidx.compose.material.icons.rounded.Notifications
+import androidx.compose.material.icons.rounded.Phone
 import androidx.compose.material.icons.rounded.PlayArrow
+import androidx.compose.material.icons.rounded.ShoppingCart
+import androidx.compose.material.icons.rounded.Star
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -116,15 +121,15 @@ fun Inicial() {
                         .padding(horizontal = 16.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Aplicativo(Color.Red, icon = Icons.Default.Face)
+                    Aplicativo(Color.Blue, icon = Icons.Rounded.Phone)
                     Spacer(modifier = Modifier.width(20.dp))
 
                     Column {
-                        Text("iFood para Entregadores")
+                        Text("Telefone")
 
                         Spacer(modifier = Modifier.height(5.dp))
 
-                        Text("Empresa • Economia gig • Empregos e carreira", style = MaterialTheme.typography.bodySmall)
+                        Text("Google LLC • Ferramentas • Comunicação", style = MaterialTheme.typography.bodySmall)
 
                         Spacer(modifier = Modifier.height(5.dp))
 
@@ -134,7 +139,7 @@ fun Inicial() {
                             Spacer(modifier = Modifier.width(2.dp))
 
                             Icon(
-                                imageVector = Icons.Filled.Star,
+                                imageVector = Icons.Rounded.Star,
                                 contentDescription = "",
                                 modifier = Modifier.size(14.dp),
                                 tint = Color.Black
@@ -142,7 +147,7 @@ fun Inicial() {
 
                             Spacer(modifier = Modifier.width(10.dp))
 
-                            Text("43 MB")
+                            Text("12 MB")
                         }
                     }
                 }
@@ -155,7 +160,7 @@ fun Inicial() {
                         .padding(horizontal = 16.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Aplicativo(Color.Black, icon = Icons.Default.ShoppingCart)
+                    Aplicativo(Color.Black, icon = Icons.Rounded.ShoppingCart)
 
                     Spacer(modifier = Modifier.width(20.dp))
 
@@ -174,7 +179,7 @@ fun Inicial() {
                             Spacer(modifier = Modifier.width(2.dp))
 
                             Icon(
-                                imageVector = Icons.Filled.Star,
+                                imageVector = Icons.Rounded.Star,
                                 contentDescription = "",
                                 modifier = Modifier.size(14.dp),
                                 tint = Color.Black
@@ -195,7 +200,7 @@ fun Inicial() {
                         .padding(horizontal = 16.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Aplicativo(Color.Green, icon = Icons.Default.Lock)
+                    Aplicativo(Color.Green, icon = Icons.Rounded.AttachMoney)
 
                     Spacer(modifier = Modifier.width(20.dp))
 
@@ -214,7 +219,7 @@ fun Inicial() {
                             Spacer(modifier = Modifier.width(2.dp))
 
                             Icon(
-                                imageVector = Icons.Filled.Star,
+                                imageVector = Icons.Rounded.Star,
                                 contentDescription = "",
                                 modifier = Modifier.size(14.dp),
                                 tint = Color.Black
@@ -241,13 +246,14 @@ fun BarraTopo(){
             Icon(
                 imageVector = Icons.Rounded.PlayArrow,
                 contentDescription = "",
+                tint = Color.Blue,
                 modifier = Modifier.size(45.dp)
             )
         },
         title = { Text("") },
         actions = {
             Icon(
-                imageVector = Icons.Outlined.Notifications,
+                imageVector = Icons.Rounded.Notifications,
                 contentDescription = "",
                 modifier = Modifier.size(30.dp)
             )

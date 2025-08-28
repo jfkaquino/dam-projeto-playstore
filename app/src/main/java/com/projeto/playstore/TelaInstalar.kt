@@ -30,6 +30,7 @@ import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -37,6 +38,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.VerticalDivider
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,7 +51,7 @@ import androidx.compose.ui.unit.dp
 
 
 @OptIn(ExperimentalLayoutApi::class)
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun TelaInstalar() {
     Scaffold(
@@ -69,7 +71,8 @@ fun TelaInstalar() {
             ) {
                 Row {
                     Surface(
-                        modifier = Modifier.size(80.dp),
+                        modifier = Modifier
+                            .size(80.dp),
                         color = Color.Blue,
                         shape = RoundedCornerShape(12.dp)
                     ) {
@@ -95,32 +98,37 @@ fun TelaInstalar() {
                 Spacer(modifier = Modifier.height(15.dp))
                 Row(
                     modifier = Modifier
-                        .fillMaxWidth(),
+                        .fillMaxWidth()
+                        .padding(0.dp, 15.dp),
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Column(
                         modifier = Modifier
-                            .weight(1f)
-                            .padding(horizontal = 15.dp, vertical = 10.dp),
+                            .weight(1f),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(
-                            "4,3",
+                            "4,5",
                             textAlign = TextAlign.Center,
                             fontWeight = FontWeight.Bold,
                             style = MaterialTheme.typography.labelSmall
                         )
                         Text(
-                            "26 mi\navaliações",
+                            "40 mi\navaliações",
                             textAlign = TextAlign.Center,
                             color = Color.DarkGray,
                             style = MaterialTheme.typography.labelSmall
                         )
                     }
+                    VerticalDivider(
+                        modifier = Modifier
+                            .height(26.dp),
+                        thickness = 1.dp,
+                        color = Color.Gray,
+                    )
                     Column(
                         modifier = Modifier
-                            .weight(1f)
-                            .padding(horizontal = 15.dp, vertical = 10.dp),
+                            .weight(1f),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Icon(
@@ -128,20 +136,25 @@ fun TelaInstalar() {
                             contentDescription = ""
                         )
                         Text(
-                            "8,8 MB",
+                            "12 MB",
                             textAlign = TextAlign.Center,
                             color = Color.DarkGray,
                             style = MaterialTheme.typography.labelSmall
                         )
                     }
+                    VerticalDivider(
+                        modifier = Modifier
+                            .height(26.dp),
+                        thickness = 1.dp,
+                        color = Color.Gray,
+                    )
                     Column(
                         modifier = Modifier
-                            .weight(1f)
-                            .padding(horizontal = 15.dp, vertical = 10.dp),
+                            .weight(1f),
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(
-                            "Mais de 10 bi",
+                            "Mais de 1 bi",
                             textAlign = TextAlign.Center,
                             fontWeight = FontWeight.Bold,
                             style = MaterialTheme.typography.labelSmall
@@ -156,8 +169,7 @@ fun TelaInstalar() {
                 }
                 Button(
                     modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(horizontal = 15.dp),
+                        .fillMaxWidth(),
                     colors = ButtonColors(
                         containerColor = Color.Blue,
                         contentColor = Color.White,
@@ -220,35 +232,11 @@ fun TelaInstalar() {
                         .fillMaxWidth(),
                     verticalArrangement = Arrangement.SpaceBetween,
                     horizontalArrangement = Arrangement.SpaceBetween
-                ){
-                    Text(
-                        "Ferramentas",
-                        modifier = Modifier
-                            .border(BorderStroke(1.dp, Color.LightGray), RoundedCornerShape(5.dp))
-                            .padding(8.dp, 5.dp),
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    Text(
-                        "Comunicação",
-                        modifier = Modifier
-                            .border(BorderStroke(1.dp, Color.LightGray), RoundedCornerShape(5.dp))
-                            .padding(8.dp, 5.dp),
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    Text(
-                        "Apps de chamadas",
-                        modifier = Modifier
-                            .border(BorderStroke(1.dp, Color.LightGray), RoundedCornerShape(5.dp))
-                            .padding(8.dp, 5.dp),
-                        style = MaterialTheme.typography.bodyMedium
-                    )
-                    Text(
-                        "Android Auto",
-                        modifier = Modifier
-                            .border(BorderStroke(1.dp, Color.LightGray), RoundedCornerShape(5.dp))
-                            .padding(8.dp, 5.dp),
-                        style = MaterialTheme.typography.bodyMedium
-                    )
+                ) {
+                    Etiqueta("Ferramentas")
+                    Etiqueta("Comunicação")
+                    Etiqueta("Apps de chamadas")
+                    Etiqueta("Android Auto")
                 }
             }
         }
@@ -302,7 +290,6 @@ fun BarraInferior() {
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             Column(
-                modifier = Modifier,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 IconButton(
@@ -326,7 +313,6 @@ fun BarraInferior() {
                 )
             }
             Column(
-                modifier = Modifier,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 IconButton(
@@ -350,7 +336,6 @@ fun BarraInferior() {
                 )
             }
             Column(
-                modifier = Modifier,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 IconButton(
@@ -374,7 +359,6 @@ fun BarraInferior() {
                 )
             }
             Column(
-                modifier = Modifier,
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 IconButton(
@@ -410,4 +394,15 @@ fun CapturaDeTela() {
         color = Color.LightGray,
         shape = RoundedCornerShape(10.dp)
     ){}
+}
+
+@Composable
+private fun Etiqueta(texto: String) {
+    Text(
+        texto,
+        modifier = Modifier
+            .border(BorderStroke(1.dp, Color.LightGray), RoundedCornerShape(5.dp))
+            .padding(8.dp, 5.dp),
+        style = MaterialTheme.typography.bodyMedium
+    )
 }
